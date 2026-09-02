@@ -1,0 +1,32 @@
+# macOS / Xcode local state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+DerivedData/
+build/
+.build/
+.swiftpm/
+*.xcresult
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Private configuration, signing and local databases
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.cer
+*.key
+*.store
+*.store-*
+*.sqlite
+*.sqlite-*
+Config/Local.xcconfig
+
+# Local review material
+work/

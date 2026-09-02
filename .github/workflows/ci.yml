@@ -1,0 +1,20 @@
+name: Quality checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-build:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Toolchain
+        run: xcodebuild -version
+      - name: Business-rule tests
+        run: swift test
+      - name: iOS Simulator build
+        run: >-
+          xcodebuild -project Buybee.xcodeproj -scheme Buybee
+          -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO build
